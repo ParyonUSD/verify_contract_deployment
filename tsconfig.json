@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "verbatimModuleSyntax": true,
+    "target": "esnext",
+    "strict": true,
+    "noEmit": true
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}
