@@ -1,5 +1,25 @@
-import { type ElectrumRawTransactionVout, type ElectrumRawTransaction, bigIntToVmEncodingFixedByteLength } from '@paryonusd/library';
+import { binToHex, bigIntToVmNumber, padMinimallyEncodedVmNumber } from "@bitauth/libauth"
+import type { ElectrumRawTransactionVout, ElectrumRawTransaction } from './electrumTypes.js';
 import { loanFunctionAddresses, poolFunctionAddresses, stabilityPoolSidecarContractAddress } from './contractAddresses.js';
+
+const bigIntToVmEncodingFixedByteLength = (
+  value: bigint,
+  byteLength: number,
+): string => {
+  if (byteLength < 1) throw new Error('byteLength must be ≥ 1');
+
+  const minimal = bigIntToVmNumber(value);
+
+  if (minimal.length > byteLength) {
+    throw new Error('value exceeds the requested byteLength');
+  }
+
+  if (minimal.length === byteLength) {
+    return binToHex(minimal);
+  }
+
+  return binToHex(padMinimallyEncodedVmNumber(minimal, byteLength));
+};
 
 const firstParyonPeriod = 0n
 const firstPeriodHexBytes4 = bigIntToVmEncodingFixedByteLength(firstParyonPeriod,4)

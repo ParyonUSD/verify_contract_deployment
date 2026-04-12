@@ -1,6 +1,6 @@
 import { network, deploymentToVerify, genesisTxIds, KNOWN_GP_ORACLE_PUBKEY } from './config.js';
 import { ElectrumNetworkProvider } from 'cashscript';
-import { type ElectrumRawTransaction } from '@paryonusd/library';
+import type { ElectrumRawTransaction } from './electrumTypes.js';
 import {
   validateCollectorContractOutput,
   validateLoanFunctionOutput, 
