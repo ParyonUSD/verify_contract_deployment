@@ -1,19 +1,18 @@
-import { DEPLOYMENT_CHIPNET_12 } from '@paryonusd/library';
+import { DEPLOYMENT_MAINNET_V1 } from '@paryonusd/library';
 
 // This deployment config is used in the 'verifySetup' script
-// TODO: update this with new mainnet deployment when ready
-const deploymentToVerify = DEPLOYMENT_CHIPNET_12
+const deploymentToVerify = DEPLOYMENT_MAINNET_V1
 
 const network = deploymentToVerify.network
 
 // Since electrum protocol does not support looking up spending transactions, you
 // need to manually provide the genesis transaction ID corresponding to each token ID.
 const genesisTxIds = {
-  paryonTokenGenesisTxid: '0e7f8c599058dce0315c013bcfe5bfcf8a6c0a983b40f87f15cf682ea01b807e',
-  poolTokenGenesisTxid: '50cbb101835bd48e017884302a7dfa434a502f99319f06a59f7a238f04de91e9',
-  redeemerTokenGenesisTxid: 'd8560303632252cb0ae7dbc159adcfcb233900137ab200efdac6b04a09710c39',
-  loanKeyFactoryTokenGenesisTxid: 'a342c24cde932a7145d379ab5227200b97fa1ba4f70119da5954e94b49158128',
-  oracleMigrationKeyTokenGenesisTxid: '2a05314f5684a1ccd11cae841d2a699a6d17a723111a758c1a1cb53857c298da'
+  paryonTokenGenesisTxid: '9c938f53eb97e089c72c47e9e5cf5f68ad23fd5eb4cb579c5266f04bba4b4d62',
+  poolTokenGenesisTxid: '6a9eb371b2f9379568dad9ed0d4757859f2aa1db33207b6b885135ed8db31c2f',
+  redeemerTokenGenesisTxid: '693c322cf1f0012bd17e765ffb5fa46602c1a37af21f6a8a69447e0a511895ea',
+  loanKeyFactoryTokenGenesisTxid: '9d432d0f13842ced1f37d03dc3d31faf628c24146292a4c69b09c1a6758a79ff',
+  oracleMigrationKeyTokenGenesisTxid: '68180fe720cfd1240e8fc571843522a7fe151ddc6405d6c5d93f3543906051de'
 }
 
 // Known General Protocols oracle public key, please verify this by visiting

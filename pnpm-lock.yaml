@@ -12,11 +12,11 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       '@paryonusd/contracts':
-        specifier: ^0.2.0
-        version: 0.2.0
+        specifier: ^0.5.0
+        version: 0.5.0
       '@paryonusd/library':
-        specifier: ^0.3.0
-        version: 0.3.0(typescript@6.0.2)(ws@8.20.0)
+        specifier: ^0.10.0
+        version: 0.10.0(typescript@6.0.2)(ws@8.20.0)
       cashscript:
         specifier: ^0.12.1
         version: 0.12.1
@@ -254,11 +254,11 @@ packages:
   '@mr-zwets/bchn-api-wrapper@1.0.3':
     resolution: {integrity: sha512-60BwyiEibuLQyj+QcdGp4rd4KZ4TfvWrRBnE0gbMM/EHVY6iAApCn4orU6ZAhonVvPiCYrcef+39yLag71WbhA==}
 
-  '@paryonusd/contracts@0.2.0':
-    resolution: {integrity: sha512-xbAsPDaYePKmXYyCh/QGlNdlSeJN+JthaJOM/BiLT70aTItmbMEpuPP0xro/UkBN4iUsM1D/avni3M79ECb6CQ==}
+  '@paryonusd/contracts@0.5.0':
+    resolution: {integrity: sha512-VSsBcjrxM0snFWvfjdGdvdNvRDaC2srH1Zc1IPFlrnga1elowFht9DZcxLHZ03AFe0xBXVg8FuCCsNgvyb3nBw==}
 
-  '@paryonusd/library@0.3.0':
-    resolution: {integrity: sha512-znEredDHlFXY8c8Aosz4eZbwwsBkMA+SWsjZ/TBEnrG6u6d2eY43l9ik9j5AEFnSrRdZVV7pDFPveSNeITG+qg==}
+  '@paryonusd/library@0.10.0':
+    resolution: {integrity: sha512-9Ae1x2W9N0tyt1cU4j/MF7lnlEYQow4GHFq+QE3E/36Je76+vpnKcuHX6SF3ctQX3TStZ2HfIWVRn3t9GnhCQg==}
     engines: {node: '>=22.0.0'}
 
   '@types/node@24.12.2':
@@ -543,13 +543,13 @@ snapshots:
 
   '@mr-zwets/bchn-api-wrapper@1.0.3': {}
 
-  '@paryonusd/contracts@0.2.0': {}
+  '@paryonusd/contracts@0.5.0': {}
 
-  '@paryonusd/library@0.3.0(typescript@6.0.2)(ws@8.20.0)':
+  '@paryonusd/library@0.10.0(typescript@6.0.2)(ws@8.20.0)':
     dependencies:
       '@bitauth/libauth': 3.1.0-next.8
       '@electrum-cash/network': 4.1.4
-      '@paryonusd/contracts': 0.2.0
+      '@paryonusd/contracts': 0.5.0
       '@urql/core': 6.0.1(graphql@16.13.2)
       '@urql/exchange-retry': 2.0.0(@urql/core@6.0.1(graphql@16.13.2))
       cashscript: 0.12.1
