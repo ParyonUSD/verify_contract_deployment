@@ -12,14 +12,11 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       '@paryonusd/contracts':
-        specifier: ^0.5.0
-        version: 0.5.0
-      '@paryonusd/library':
-        specifier: ^0.10.0
-        version: 0.10.0(typescript@6.0.2)(ws@8.20.0)
+        specifier: ^1.0.0
+        version: 1.0.0
       cashscript:
-        specifier: ^0.12.1
-        version: 0.12.1
+        specifier: ^0.13.0
+        version: 0.13.1
       tsx:
         specifier: ^4.21.0
         version: 4.21.0
@@ -33,20 +30,6 @@ importers:
 
 packages:
 
-  '@0no-co/graphql.web@1.2.0':
-    resolution: {integrity: sha512-/1iHy9TTr63gE1YcR5idjx8UREz1s0kFhydf3bBLCXyqjhkIc6igAzTOx3zPifCwFR87tsh/4Pa9cNts6d2otw==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    peerDependenciesMeta:
-      graphql:
-        optional: true
-
-  '@0no-co/graphqlsp@1.15.3':
-    resolution: {integrity: sha512-rap58Wh1qbRnGpPGwB60P6rvKF6G+mgo1kPeDySWIAcqkGMjuyQdrZPcHS6w7mKOT8i/f1UQmjow6+7vfuEXKw==}
-    peerDependencies:
-      graphql: ^15.5.0 || ^16.0.0 || ^17.0.0
-      typescript: ^5.0.0 || ^6.0.0
-
   '@bitauth/libauth@3.0.0':
     resolution: {integrity: sha512-3yoL31XpnhAnf5nDVMFk4xPqebxDwXrgYAwpa31ARJnV5A/eXWlpNYvCd6FTZPFM4VvKfjCBi+jRCrw1hOZ0Jg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -55,14 +38,11 @@ packages:
     resolution: {integrity: sha512-Pm+Ju+YP3JeBLLTiVrBnia2wwE4G17r4XqpvPRMcklElJTe8J6x3JgKRg1by0Xm3ZY6UFxACkEAoSA+x419/zA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  '@cashscript/utils@0.12.1':
-    resolution: {integrity: sha512-dGVbbFMUHZJFjmLkGQNrM0/hzoXlJgM8bYU1J5cX80Vo5n7dmopctmxplgXGd3u/h6hBUt3V7lTawGi8DBupJQ==}
+  '@cashscript/utils@0.13.1':
+    resolution: {integrity: sha512-MAZ0SK+wvgQbTKHHgTDocfOI+Yrmw5c8bv4FyKUuCtjw/+JE/HJEEKyL/0ppEFbOzv5Jy4JQIV6n7GPNWm/wbQ==}
 
   '@electrum-cash/debug-logs@1.0.0':
     resolution: {integrity: sha512-GU/CvRR9lZ0d8gy9CXGW7f//OHCIydBavv9q+JcxjGj8Xr7HwlGqHx+Wzhx9y3YmJrXfExpgClcd++gTjdEmzA==}
-
-  '@electrum-cash/network@4.1.4':
-    resolution: {integrity: sha512-nHC/HTo26JGghVunXMlc2lh2p6gwUDjs8umGvEE4we+G0Hyv7xaO+WVYqKrGcr5huBnUX9wakVBIJmbtigzi4Q==}
 
   '@electrum-cash/network@4.2.2':
     resolution: {integrity: sha512-v2Wwt2o0VBBALPArx2dJEDvSqewKjiTW5KAd+jEXxxgdSxFygjJIrFcXryKOCv2CDbpE5+lXAogPAjx6FqW/nw==}
@@ -226,40 +206,13 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@gql.tada/cli-utils@1.7.3':
-    resolution: {integrity: sha512-3iQY5E/jvv3Lnh6D1Mh7zr+Bb9C/TGk1DHkm+lbIjQBnZAu2m+BcTcr1e3spUt6Aa6HG/xAN2XxpbWw9oZALEg==}
-    peerDependencies:
-      '@0no-co/graphqlsp': ^1.12.13
-      '@gql.tada/svelte-support': 1.0.2
-      '@gql.tada/vue-support': 1.0.2
-      graphql: ^15.5.0 || ^16.0.0 || ^17.0.0
-      typescript: ^5.0.0 || ^6.0.0
-    peerDependenciesMeta:
-      '@gql.tada/svelte-support':
-        optional: true
-      '@gql.tada/vue-support':
-        optional: true
-
-  '@gql.tada/internal@1.0.9':
-    resolution: {integrity: sha512-Bp8yi+kLrzIJ3l5Dfxhz48H4OCH2LCX+pShaPcJgh+oiBt6clrjUKDYNDD3Z78aDQ3+Tyrxe4dd0MfLgpSLPPg==}
-    peerDependencies:
-      graphql: ^15.5.0 || ^16.0.0 || ^17.0.0
-      typescript: ^5.0.0 || ^6.0.0
-
   '@monsterbitar/isomorphic-ws@5.3.1':
     resolution: {integrity: sha512-BWfWUffbg3uO4K6Cyokg9ff43lPaXAOZcCnNe1lcjCjUMDVrRAb5qEHG5qeJp3ud2SPYbORaNsls5as6SR3oig==}
     peerDependencies:
       ws: '*'
 
-  '@mr-zwets/bchn-api-wrapper@1.0.3':
-    resolution: {integrity: sha512-60BwyiEibuLQyj+QcdGp4rd4KZ4TfvWrRBnE0gbMM/EHVY6iAApCn4orU6ZAhonVvPiCYrcef+39yLag71WbhA==}
-
-  '@paryonusd/contracts@0.5.0':
-    resolution: {integrity: sha512-VSsBcjrxM0snFWvfjdGdvdNvRDaC2srH1Zc1IPFlrnga1elowFht9DZcxLHZ03AFe0xBXVg8FuCCsNgvyb3nBw==}
-
-  '@paryonusd/library@0.10.0':
-    resolution: {integrity: sha512-9Ae1x2W9N0tyt1cU4j/MF7lnlEYQow4GHFq+QE3E/36Je76+vpnKcuHX6SF3ctQX3TStZ2HfIWVRn3t9GnhCQg==}
-    engines: {node: '>=22.0.0'}
+  '@paryonusd/contracts@1.0.0':
+    resolution: {integrity: sha512-5zSLS8YC3/1P3z8Q2JxUdDvXbb/tGFKiymC5i25Au6dH4nlSp57Qvp1e5DG8+TwZyeDoT1yBLlymRvq9L0pW3A==}
 
   '@types/node@24.12.2':
     resolution: {integrity: sha512-A1sre26ke7HDIuY/M23nd9gfB+nrmhtYyMINbjI1zHJxYteKR6qSMX56FsmjMcDb3SMcjJg5BiRRgOCC/yBD0g==}
@@ -267,19 +220,11 @@ packages:
   '@types/ws@8.18.1':
     resolution: {integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==}
 
-  '@urql/core@6.0.1':
-    resolution: {integrity: sha512-FZDiQk6jxbj5hixf2rEPv0jI+IZz0EqqGW8mJBEug68/zHTtT+f34guZDmyjJZyiWbj0vL165LoMr/TkeDHaug==}
-
-  '@urql/exchange-retry@2.0.0':
-    resolution: {integrity: sha512-VdSMCiOptd6Ah6g5Bo+MzrNMAGzgRMC775W86strLRQN7lvvNlhx1LwU0gzb2h/z0atcJFAmDJEbMyvupkT+7A==}
-    peerDependencies:
-      '@urql/core': ^6.0.0
-
   async-mutex@0.5.0:
     resolution: {integrity: sha512-1A94B18jkJ3DYq284ohPxoXbfTA5HsQ7/Mf4DEhcyLx3Bz27Rh59iScbB6EPiP+B+joue6YCxcMXSbFC1tZKwA==}
 
-  cashscript@0.12.1:
-    resolution: {integrity: sha512-IGKipstPw+/N+Nr5YyZf7LH89o32cmoMZFYZsEYQdOhMJQKp/m8lxkug8bPTm3oee+zzO4vYpDCbsBCaAhuj/A==}
+  cashscript@0.13.1:
+    resolution: {integrity: sha512-BrPFO4TYFTFc41Ft4Hpsky9UNct2SEv6QdC89utu4B/9+8kl4uJLy4SjUv9ZJciGSigQOg4McKYzuYCc/oYl2g==}
 
   debug@4.4.3:
     resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
@@ -298,6 +243,9 @@ packages:
   eventemitter3@5.0.4:
     resolution: {integrity: sha512-mlsTRyGaPBjPedk6Bvw+aqbsXDtoAyAzm5MO7JgU+yVRyMQ5O8bD4Kcci7BS85f93veegeCPkL8R4GLClnjLFw==}
 
+  fflate@0.8.3:
+    resolution: {integrity: sha512-tbZNuJrLwGUp3zshBtdy4W+ORxZuIh8a5ilyIEQDC5rY1f3U20JMry0Ll3WBzU58EZKsEuJFXhb5gwv8CsPvgA==}
+
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -306,40 +254,11 @@ packages:
   get-tsconfig@4.13.7:
     resolution: {integrity: sha512-7tN6rFgBlMgpBML5j8typ92BKFi2sFQvIdpAqLA2beia5avZDrMs0FLZiM5etShWq5irVyGcGMEA1jcDaK7A/Q==}
 
-  gql.tada@1.9.2:
-    resolution: {integrity: sha512-QxRHVpxtrOVdYXz6oavq0lBM+Zdp0swapLGJcD4SLpXDcsD337BHDFrzqqjfkbepv0sSAiO0LGabu1kI5D5Gyg==}
-    hasBin: true
-    peerDependencies:
-      typescript: ^5.0.0 || ^6.0.0
-
-  graphql-ws@6.0.8:
-    resolution: {integrity: sha512-m3EOaNsUBXwAnkBWbzPfe0Nq8pXUfxsWnolC54sru3FzHvhTZL0Ouf/BoQsaGAXqM+YPerXOJ47BUnmgmoupCw==}
-    engines: {node: '>=20'}
-    peerDependencies:
-      '@fastify/websocket': ^10 || ^11
-      crossws: ~0.3
-      graphql: ^15.10.1 || ^16
-      ws: ^8
-    peerDependenciesMeta:
-      '@fastify/websocket':
-        optional: true
-      crossws:
-        optional: true
-      ws:
-        optional: true
-
-  graphql@16.13.2:
-    resolution: {integrity: sha512-5bJ+nf/UCpAjHM8i06fl7eLyVC9iuNAjm9qzkiu2ZGhM0VscSvS6WDPfAwkdkBuoXGM9FJSbKl6wylMwP9Ktig==}
-    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
-
   lossless-json@4.3.0:
     resolution: {integrity: sha512-ToxOC+SsduRmdSuoLZLYAr5zy1Qu7l5XhmPWM3zefCZ5IcrzW/h108qbJUKfOlDlhvhjUK84+8PSVX0kxnit0g==}
 
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
-
-  pako@2.1.0:
-    resolution: {integrity: sha512-w+eufiZ1WuJYgPXbV/PO3NCMEc3xqylkKHzp8bxp1uW4qaSNQUkwmLLEc3kKsfz8lpV1F8Ht3U1Cm+9Srog2ug==}
 
   resolve-pkg-maps@1.0.0:
     resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
@@ -365,9 +284,6 @@ packages:
   undici-types@7.16.0:
     resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
 
-  wonka@6.3.6:
-    resolution: {integrity: sha512-MXH+6mDHAZ2GuMpgKS055FR6v0xVP3XwquxIMYXgiW+FejHQlMGlvVRZT4qMCxR+bEo/FCtIdKxwej9WV3YQag==}
-
   ws@8.20.0:
     resolution: {integrity: sha512-sAt8BhgNbzCtgGbt2OxmpuryO63ZoDk/sqaB/znQm94T4fCEsy/yV+7CdC1kJhOU9lboAEU7R3kquuycDoibVA==}
     engines: {node: '>=10.0.0'}
@@ -382,21 +298,11 @@ packages:
 
 snapshots:
 
-  '@0no-co/graphql.web@1.2.0(graphql@16.13.2)':
-    optionalDependencies:
-      graphql: 16.13.2
-
-  '@0no-co/graphqlsp@1.15.3(graphql@16.13.2)(typescript@6.0.2)':
-    dependencies:
-      '@gql.tada/internal': 1.0.9(graphql@16.13.2)(typescript@6.0.2)
-      graphql: 16.13.2
-      typescript: 6.0.2
-
   '@bitauth/libauth@3.0.0': {}
 
   '@bitauth/libauth@3.1.0-next.8': {}
 
-  '@cashscript/utils@0.12.1':
+  '@cashscript/utils@0.13.1':
     dependencies:
       '@bitauth/libauth': 3.1.0-next.8
 
@@ -405,19 +311,6 @@ snapshots:
       debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
-
-  '@electrum-cash/network@4.1.4':
-    dependencies:
-      '@electrum-cash/debug-logs': 1.0.0
-      '@electrum-cash/web-socket': 1.2.3
-      async-mutex: 0.5.0
-      debug: 4.4.3
-      eventemitter3: 5.0.4
-      lossless-json: 4.3.0
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
 
   '@electrum-cash/network@4.2.2':
     dependencies:
@@ -524,48 +417,11 @@ snapshots:
   '@esbuild/win32-x64@0.27.7':
     optional: true
 
-  '@gql.tada/cli-utils@1.7.3(@0no-co/graphqlsp@1.15.3(graphql@16.13.2)(typescript@6.0.2))(graphql@16.13.2)(typescript@6.0.2)':
-    dependencies:
-      '@0no-co/graphqlsp': 1.15.3(graphql@16.13.2)(typescript@6.0.2)
-      '@gql.tada/internal': 1.0.9(graphql@16.13.2)(typescript@6.0.2)
-      graphql: 16.13.2
-      typescript: 6.0.2
-
-  '@gql.tada/internal@1.0.9(graphql@16.13.2)(typescript@6.0.2)':
-    dependencies:
-      '@0no-co/graphql.web': 1.2.0(graphql@16.13.2)
-      graphql: 16.13.2
-      typescript: 6.0.2
-
   '@monsterbitar/isomorphic-ws@5.3.1(ws@8.20.0)':
     dependencies:
       ws: 8.20.0
 
-  '@mr-zwets/bchn-api-wrapper@1.0.3': {}
-
-  '@paryonusd/contracts@0.5.0': {}
-
-  '@paryonusd/library@0.10.0(typescript@6.0.2)(ws@8.20.0)':
-    dependencies:
-      '@bitauth/libauth': 3.1.0-next.8
-      '@electrum-cash/network': 4.1.4
-      '@paryonusd/contracts': 0.5.0
-      '@urql/core': 6.0.1(graphql@16.13.2)
-      '@urql/exchange-retry': 2.0.0(@urql/core@6.0.1(graphql@16.13.2))
-      cashscript: 0.12.1
-      gql.tada: 1.9.2(graphql@16.13.2)(typescript@6.0.2)
-      graphql: 16.13.2
-      graphql-ws: 6.0.8(graphql@16.13.2)(ws@8.20.0)
-    transitivePeerDependencies:
-      - '@fastify/websocket'
-      - '@gql.tada/svelte-support'
-      - '@gql.tada/vue-support'
-      - bufferutil
-      - crossws
-      - supports-color
-      - typescript
-      - utf-8-validate
-      - ws
+  '@paryonusd/contracts@1.0.0': {}
 
   '@types/node@24.12.2':
     dependencies:
@@ -575,29 +431,16 @@ snapshots:
     dependencies:
       '@types/node': 24.12.2
 
-  '@urql/core@6.0.1(graphql@16.13.2)':
-    dependencies:
-      '@0no-co/graphql.web': 1.2.0(graphql@16.13.2)
-      wonka: 6.3.6
-    transitivePeerDependencies:
-      - graphql
-
-  '@urql/exchange-retry@2.0.0(@urql/core@6.0.1(graphql@16.13.2))':
-    dependencies:
-      '@urql/core': 6.0.1(graphql@16.13.2)
-      wonka: 6.3.6
-
   async-mutex@0.5.0:
     dependencies:
       tslib: 2.8.1
 
-  cashscript@0.12.1:
+  cashscript@0.13.1:
     dependencies:
       '@bitauth/libauth': 3.1.0-next.8
-      '@cashscript/utils': 0.12.1
+      '@cashscript/utils': 0.13.1
       '@electrum-cash/network': 4.2.2
-      '@mr-zwets/bchn-api-wrapper': 1.0.3
-      pako: 2.1.0
+      fflate: 0.8.3
       semver: 7.7.4
     transitivePeerDependencies:
       - bufferutil
@@ -639,6 +482,8 @@ snapshots:
 
   eventemitter3@5.0.4: {}
 
+  fflate@0.8.3: {}
+
   fsevents@2.3.3:
     optional: true
 
@@ -646,31 +491,9 @@ snapshots:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
-  gql.tada@1.9.2(graphql@16.13.2)(typescript@6.0.2):
-    dependencies:
-      '@0no-co/graphql.web': 1.2.0(graphql@16.13.2)
-      '@0no-co/graphqlsp': 1.15.3(graphql@16.13.2)(typescript@6.0.2)
-      '@gql.tada/cli-utils': 1.7.3(@0no-co/graphqlsp@1.15.3(graphql@16.13.2)(typescript@6.0.2))(graphql@16.13.2)(typescript@6.0.2)
-      '@gql.tada/internal': 1.0.9(graphql@16.13.2)(typescript@6.0.2)
-      typescript: 6.0.2
-    transitivePeerDependencies:
-      - '@gql.tada/svelte-support'
-      - '@gql.tada/vue-support'
-      - graphql
-
-  graphql-ws@6.0.8(graphql@16.13.2)(ws@8.20.0):
-    dependencies:
-      graphql: 16.13.2
-    optionalDependencies:
-      ws: 8.20.0
-
-  graphql@16.13.2: {}
-
   lossless-json@4.3.0: {}
 
   ms@2.1.3: {}
-
-  pako@2.1.0: {}
 
   resolve-pkg-maps@1.0.0: {}
 
@@ -688,7 +511,5 @@ snapshots:
   typescript@6.0.2: {}
 
   undici-types@7.16.0: {}
-
-  wonka@6.3.6: {}
 
   ws@8.20.0: {}
