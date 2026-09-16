@@ -47,9 +47,13 @@ export function validatePriceContractOutput(output: ElectrumRawTransactionVout, 
   if(capability != "mutable"){
     throw new Error(`Expected mutable capability for price contract NFT in genesis transaction: ${paryonGenesisTx.txid}`)
   }
-  // starting price contract commitment is only validated to be 9 bytes
-  if(commitment?.length != 18){
+  // Price state is `0x00 identifier + bytes4 sequence + bytes4 price` (9 bytes). The covenants tell a
+  // price contract from a loan by that leading byte alone, so it is a base case of the formal proof.
+  if(!commitment || commitment.length != 18){
     throw new Error(`Unexpected commitment length for price contract NFT in genesis transaction: ${paryonGenesisTx.txid}. Expected length: 18, got: ${commitment?.length}`)
+  }
+  if(!commitment.startsWith("00")){
+    throw new Error(`Unexpected leading byte for price contract NFT commitment in genesis transaction: ${paryonGenesisTx.txid}. Expected the price-state identifier 00, got: ${commitment.slice(0, 2)}`)
   }
 }
 

@@ -116,8 +116,11 @@ try {
     // Skip OP_RETURN outputs (e.g. BCMR metadata) — they are provably unspendable
     if (output.scriptPubKey.hex.startsWith('6a')) continue;
     const outputAddress = output.scriptPubKey.addresses[0]
+    // A paryonTokenId output may only sit at the borrowing, price or loan-function contracts: the base
+    // case of the formal proof's invariant that every paryon immutable NFT with a non-empty commitment
+    // is a function NFT (Redeemer.createRedemption authenticates one by category and leading byte alone).
     if (!allParyonTokenIdContractAddresses.includes(outputAddress) && output.tokenData) {
-      throw new Error(`Unexpected token output found in paryonTokenId genesis transaction: ${paryonGenesisTx.txid}`)
+      throw new Error(`Unexpected token output found in paryonTokenId genesis transaction: ${paryonGenesisTx.txid} at address: ${outputAddress}. paryonTokenId outputs may only sit at the borrowing contract, the price contract or a loan function contract.`)
     }
     if (outputAddress !== borrowingContractAddress && output.tokenData && BigInt(output.tokenData.amount)) {
       throw new Error(`Unexpected fungible token output found in paryonTokenId genesis transaction: ${paryonGenesisTx.txid} for address: ${outputAddress}`)
