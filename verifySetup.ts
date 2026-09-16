@@ -11,6 +11,7 @@ import {
   validateStabilityPoolHasSidecarOutput,
   validateLoanKeyFactoryContractOutput,
   validateRedeemerContractOutput,
+  validateNoStrayFunctionNfts,
 } from './validationUtils.js';
 import {
   borrowingContractAddress,
@@ -309,6 +310,17 @@ console.log("Total fungible token supply is zero as expected")
   console.log(`PriceContract address (derived from oracleMigrationKeyTokenId) has ${paryonTokenIdGenesisOutputTypes.priceContractAddress} output(s) in paryonTokenId genesis tx`)
 
   console.log("✅ Verified oracleMigrationKeyTokenId genesis transaction.")
+
+  /* 6. Verify the function-NFT base case across all 5 genesis transactions */
+
+  console.log("\nVerifying the function NFTs were only created on their own function contracts")
+
+  // Base case for the formal-verification induction; see validateNoStrayFunctionNfts.
+  validateNoStrayFunctionNfts(fullGenesisTxs)
+
+  console.log("No genesis output carries a function-NFT shape off its own function contract,",
+    "and every output on a function contract is that contract's function NFT")
+  console.log("✅ Verified the function NFT base case across all 5 genesis transactions.")
 
   console.log("\n🎉 Contract setup verification completed successfully for the token IDs listed above.")
 

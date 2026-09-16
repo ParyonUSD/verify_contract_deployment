@@ -25,6 +25,10 @@ For each of the 5 token IDs the script verifies:
 - The outputs either have no fungible tokens or for the `paryonTokenId` that fungible tokens are only present on the paryon-borrowing contract
 - No unexpected NFTs or fungible tokens are created to other outputs (other than to the contract addresses)
 
+Across all 5 genesis transactions together the script additionally verifies the function-NFT base case:
+- No output carries the function-NFT shape (paryon/pool category, immutable, a function commitment) anywhere other than on the function contract that shape designates
+- Every output on a function contract is exactly that contract's function NFT
+
 ## Running the Verification
 
 ```bash
@@ -48,6 +52,8 @@ Edit `config.ts` to specify:
 3. **Address Reconstruction**: Using contract artifacts and deployment parameters, the script reconstructs expected contract addresses. Artifacts are loaded from `@paryonusd/contracts`; you can also use locally compiled artifacts.
 
 4. **Output Validation**: For each genesis transaction, the script checks outputs go to expected addresses with correct token data.
+
+5. **Function-NFT Base Case**: Finally, the script scans the outputs of all 5 genesis transactions together and verifies that no counterfeit function NFT was created off its own function contract. The contracts are formally verified to recreate in place every function NFT they spend, with the same category, contract and commitment; that induction only pins down the live system if the deploy state it starts from is clean, which is what this step establishes.
 
 ## Files
 
@@ -98,6 +104,10 @@ Verifying the loanKeyFactoryTokenId genesis transaction (4/5)
 Verifying the oracleMigrationKeyTokenId genesis transaction (5/5)
 ...
 ✅ Verified oracleMigrationKeyTokenId genesis transaction.
+
+Verifying the function NFTs were only created on their own function contracts
+No genesis output carries a function-NFT shape off its own function contract, and every output on a function contract is that contract's function NFT
+✅ Verified the function NFT base case across all 5 genesis transactions.
 
 🎉 Contract setup verification completed successfully for the token IDs listed above.
 ```

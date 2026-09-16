@@ -1,6 +1,7 @@
 import { binToHex, bigIntToVmNumber, padMinimallyEncodedVmNumber } from "@bitauth/libauth"
 import type { ElectrumRawTransactionVout, ElectrumRawTransaction } from './electrumTypes.js';
 import { loanFunctionAddresses, poolFunctionAddresses, stabilityPoolSidecarContractAddress } from './contractAddresses.js';
+import { deploymentToVerify } from './config.js';
 
 const bigIntToVmEncodingFixedByteLength = (
   value: bigint,
@@ -160,5 +161,58 @@ export function validateLoanKeyFactoryContractOutput(output: ElectrumRawTransact
   }
   if(commitment != ""){
     throw new Error(`Expected empty commitment for loan key factory contract NFT in genesis transaction: ${loanKeyFactoryGenesisTx.txid}`)
+  }
+}
+/**
+ * The function NFTs of the deployment: the immutable NFTs whose presence on a function contract
+ * is what makes that covenant operation possible. Each one is identified by its
+ * (category, immutable capability, 1-byte commitment) shape and belongs on exactly one address.
+ */
+const functionNfts = [
+  ...loanFunctionAddresses.map((address, index) => ({
+    label: `loan function ${index + 1}/${loanFunctionAddresses.length}`,
+    category: deploymentToVerify.tokenIds.paryonTokenId,
+    commitment: loanFunctionCommitments[index],
+    address
+  })),
+  ...poolFunctionAddresses.map((address, index) => ({
+    label: `pool function ${index + 1}/${poolFunctionAddresses.length}`,
+    category: deploymentToVerify.tokenIds.poolTokenId,
+    commitment: poolFunctionCommitments[index],
+    address
+  }))
+]
+
+/**
+ * Base case of the function-NFT invariant proven in paryon_formal_verification. The covenants accept
+ * a function NFT by shape alone (category + one-byte commitment), and the proof that no such NFT can
+ * ever exist off its function contract assumes the deploy state starts that way. Over every output
+ * of all 5 genesis transactions: a function-NFT shape sits only on the function contract it
+ * designates, and every output on a function contract is that contract's function NFT.
+ */
+export function validateNoStrayFunctionNfts(genesisTxs: ElectrumRawTransaction[]) {
+  for (const genesisTx of genesisTxs) {
+    for (const output of genesisTx.vout) {
+      // Skip OP_RETURN outputs (e.g. BCMR metadata) — they are provably unspendable
+      if (output.scriptPubKey.hex.startsWith('6a')) continue;
+      const outputAddress = output.scriptPubKey.addresses[0]
+      const { category, nft } = output.tokenData ?? {}
+
+      // 1. an output with the function-NFT shape must sit on the function contract it designates
+      const impersonatedFunctionNft = nft?.capability === "none"
+        ? functionNfts.find(functionNft =>
+            functionNft.category === category && functionNft.commitment === nft.commitment
+          )
+        : undefined
+      if (impersonatedFunctionNft && outputAddress !== impersonatedFunctionNft.address) {
+        throw new Error(`Stray ${impersonatedFunctionNft.label} NFT (commitment ${nft?.commitment}) in genesis transaction ${genesisTx.txid} output ${output.n}: it is on address ${outputAddress} instead of its function contract ${impersonatedFunctionNft.address}`)
+      }
+
+      // 2. an output on a function contract must be exactly that contract's function NFT
+      const expectedFunctionNft = functionNfts.find(functionNft => functionNft.address === outputAddress)
+      if (expectedFunctionNft && !impersonatedFunctionNft) {
+        throw new Error(`Unexpected output on the ${expectedFunctionNft.label} contract ${outputAddress} in genesis transaction ${genesisTx.txid} output ${output.n}: expected the function NFT (category ${expectedFunctionNft.category}, capability none, commitment ${expectedFunctionNft.commitment}), got category ${category}, capability ${nft?.capability}, commitment ${nft?.commitment}`)
+      }
+    }
   }
 }
